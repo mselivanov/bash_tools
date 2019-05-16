@@ -11,7 +11,7 @@ ucase() {
     ;;
   esac
 
-  printf ${_char}
+  printf "${_char}"
 }
 
 run_tests() {
@@ -19,12 +19,28 @@ run_tests() {
   # Test ucase
   if [[ "A" != $(ucase "a") ]] 
   then
-    printf "ucase 'a' must be equal 'A'"
+    printf "ucase 'a' must be equal to 'A'"
     exit 1
   else
     printf "ucase 'a' test passed\n"
   fi
 
+  if [[ "" != $(ucase "") ]] 
+  then
+    printf "ucase '' must be equal to ''"
+    exit 1
+  else
+    printf "ucase '' test passed\n"
+  fi
+
+  if [[ "Z" != $(ucase "z") ]] 
+  then
+    printf "ucase 'z' must be equal to 'Z'\n"
+    exit 1
+  else
+    printf "ucase 'z' test passed\n"
+  fi
+  
   exit 0
 }
 
